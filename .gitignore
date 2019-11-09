@@ -1,0 +1,5 @@
+/docker/
+/node_modules/
+/test/
+/vendor/
+.DS_Store

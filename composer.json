@@ -1,0 +1,41 @@
+{
+  "name": "marioy47/wordpress-plugin-starter",
+  "description": "Starter project for WordPress plugins development",
+  "type": "project",
+  "authors": [
+    {
+      "name": "Mario Yepes",
+      "email": "marioy47@gmail.com"
+    }
+  ],
+  "autoload": {
+    "psr-4": {
+      "WordpressPluginStarter\\": "app/"
+    }
+  },
+  "require": {},
+  "require-dev": {
+    "dealerdirect/phpcodesniffer-composer-installer": "*",
+    "phpcompatibility/php-compatibility": "*",
+    "phpcompatibility/phpcompatibility-wp": "*",
+    "sirbrillig/phpcs-variable-analysis": "*",
+    "wp-coding-standards/wpcs": "*"
+  },
+  "scripts": {
+    "install-codestandards": [
+      "Dealerdirect\\Composer\\Plugin\\Installers\\PHPCodeSniffer\\Plugin::run"
+    ],
+    "post-install-cmd": [
+      "@install-codestandards"
+    ],
+    "phpcs": "phpcs",
+    "phpcs-i": "phpcs -i",
+    "phpcbf": "phpcbf",
+    "phpcs-wp": [
+      "phpcs --standard=WordPress,WordPress-Extra,WordPress-Docs,WordPress-Core"
+    ],
+    "phpcbf-wp": [
+      "phpcbf --standard=WordPress,WordPress-Extra,WordPress-Docs,WordPress-Core"
+    ]
+  }
+}
