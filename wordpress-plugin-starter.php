@@ -9,7 +9,7 @@
  * @package           Wordpress_Plugin_Starter
  *
  * @wordpress-plugin
- * Plugin Name:       wordpress-plugin-starter
+ * Plugin Name:       Wordpress Plugin Starter
  * Plugin URI:        https://marioyepes.com
  * Description:       This is a short description of what the plugin does. It's displayed in the WordPress admin area.
  * Version:           1.0.0
@@ -20,6 +20,8 @@
  * Text Domain:       wordpress-plugin-starter
  * Domain Path:       /languages
  */
+
+namespace Wp_Starter;
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -33,4 +35,6 @@ if ( ! defined( 'WPINC' ) ) {
  */
 define( 'WORDPRESS_PLUGIN_STARTER_VERSION', '1.0.0' );
 
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/includes/autoload.php';
+
+// require_once __DIE__ . '/vendor/autoload.php';
