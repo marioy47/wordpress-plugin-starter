@@ -1,0 +1,37 @@
+{
+	"name": "wordpress-plugin-starter",
+	"version": "1.0.0",
+	"description": "",
+	"scripts": {
+		"start": "gulp watch",
+		"build": "composer install --no-dev && composer dumpautoload -o && cross-env NODE_ENV=production gulp build",
+		"compress": "composer install --no-dev && composer dumpautoload -o && cross-env NODE_ENV=production gulp compress",
+		"clean": "gulp clean",
+		"pot": "gulp pot"
+	},
+	"repository": {
+		"type": "git",
+		"url": "git+ssh://git@github.com/marioy47/wordpress-plugin-starter.git"
+	},
+	"keywords": [],
+	"author": "",
+	"license": "ISC",
+	"homepage": "https://github.com/marioy47/wordpress-plugin-starter/blob/master/README.md",
+	"devDependencies": {
+		"@babel/cli": "^7.8.4",
+		"@babel/core": "^7.8.4",
+		"@babel/preset-env": "^7.8.4",
+		"babel-loader": "^8.0.6",
+		"cross-env": "^7.0.0",
+		"del": "^5.1.0",
+		"gulp": "^4.0.2",
+		"gulp-composer": "^0.4.5",
+		"gulp-sass": "^4.0.2",
+		"gulp-wp-pot": "^2.3.6",
+		"gulp-zip": "^5.0.1",
+		"node-sass": "^4.13.1",
+		"webpack": "^4.41.5",
+		"webpack-cli": "^3.3.10",
+		"webpack-stream": "^5.2.1"
+	}
+}

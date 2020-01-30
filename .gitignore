@@ -1,5 +1,9 @@
+.DS_Store
+/*.zip
+/css/
 /docker/
+/js/
+/languages/wordpress-plugin-starter.pot
 /node_modules/
 /test/
 /vendor/
-.DS_Store
