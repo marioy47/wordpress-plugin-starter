@@ -37,5 +37,5 @@ define( 'WORDPRESS_PLUGIN_STARTER_VERSION', '1.0.0' );
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-
+// Remove this line and delete includes/class-my-test-class.php.
 My_Test_Class::factory()->wp_hooks();
