@@ -27,16 +27,20 @@ The recommended editor is [Visual Studio Code](https://code.visualstudio.com) wi
 
 **Note**: You'll get prompted to auto-install this extensions on new projects.
 
-## Start developing
-
-> **Every time you add a new class in `includes/` you have to execute `composer dump-autoload`**
+## Preparation before developing
 
 ### In `wordpress-plugin-starter.php` do
 
 1. Update the comments in this file so WordPress registers the plugin correctly.
+2. Select a **text domain** and change it in the comments
 2. Select a **Namespace** for you plugin and change it the file
 3. Change **the name** of the definition `WORDPRESS_PLUGIN_STARTER_VERSION` (You should use that definition when enqueuing  scripts and styles)
 4. **Rename the file and the dir** to something that reflects your plugin name. Maybe the name of the plugin but _"hypenized"_
+
+### In `phpcs.xml.dist`
+
+1. Change the `text-domain` parammeter so it matches the selected name in the previous step.
+2. Change the _path_ for `wordpress-plugin-starter.php` so it matches the name selected in the previous step.
 
 ### In `gulpfile.js`
 
@@ -44,11 +48,12 @@ _Only if you are going to compile SCSS/JS files or use the `compress` or `zip` t
 
 Change the values for the variables `pluginPackage`, `pluginSlug` and  `pluginTextdomain` at the top of the file so they matches the values of your project.
 
+## Workflow
 
-### Workflow
+> **Every time you add a new class in `includes/` you have to execute `composer dump-autoload`**
 
 1. Create a class (or classes) in `includes` following the WordPress coding standards with your plugin logic
-2. Issue `compser dump-autoload` so the new classes get recognized
+2. Issue `composer dump-autoload` so the new classes get recognized
 3. Instantiate this class (or use the _singleton_ parterns) in the start file (by default `wordpres-plugin-starter.php`) **without** requiring the file since the autoloader will take care if the inclussion.
 3. Issue `composer phpcs` in the root of the project regularly to check for errors and code-smells
 
