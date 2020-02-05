@@ -35,8 +35,7 @@ if ( ! defined( 'WPINC' ) ) {
  */
 define( 'WORDPRESS_PLUGIN_STARTER_VERSION', '1.0.0' );
 
-require_once __DIR__ . '/includes/autoload.php';
+require_once __DIR__ . '/vendor/autoload.php';
 
-// If using composers packages, uncomment the following lines.
-// phpcs:ignore Squiz.Commenting.InlineComment.InvalidEndChar
-// require_once __DIE__ . '/vendor/autoload.php';
+
+My_Test_Class::factory()->wp_hooks();

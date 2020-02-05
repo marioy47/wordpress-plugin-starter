@@ -7,16 +7,14 @@ The main advantages (and reasons) for using this starter are:
 - 100% PHPCS friendly
 - Uses Gulp for task automation
 - Users WebPack+Babel for compiling JS scripts
-- Uses composer for code sniffing
+- Uses composer for code sniffing and autoloading classes
 - You can add composer packages without any additional configuration
 - If you use VSCode you'll be prompted to install recommended packages
 
 
 ## Requirements & Tools
 
-To start working with this starter you don't need anything outside for a worpress installation...
-
-If you want to use Composer Packages, you'll need to get [composer](https://getcomposer.com) and install it globally
+The only requirement is that you have [composer](https://getcomposer.com) installed.
 
 If you want to compile Js and Sass files you'll need to install [node](https://nodejs.org/)
 
@@ -31,28 +29,28 @@ The recommended editor is [Visual Studio Code](https://code.visualstudio.com) wi
 
 ## Start developing
 
+> **Every time you add a new class in `includes/` you have to execute `composer dump-autoload`**
+
 ### In `wordpress-plugin-starter.php` do
 
-1. Update the initial comments the file so WordPress registers the plugin correctly.
-2. Select a **Namespace** for you plugin and change it in the file
+1. Update the comments in this file so WordPress registers the plugin correctly.
+2. Select a **Namespace** for you plugin and change it the file
 3. Change **the name** of the definition `WORDPRESS_PLUGIN_STARTER_VERSION` (You should use that definition when enqueuing  scripts and styles)
-4. Rename the file to something that reflects your plugin name. Maybe the name of the plugin but _"hypenized"_
-
-### In `includes/autoload.php`
-
-1. Change the name of the Namespace **inside** the function `wp_plugin_starter_autoloader` to match the name selected in the previous step
-2. Change the name of the **function** `wp_plugin_starter_autoloader` so there are no name collisions.
-2. Change action of the **hook** `wp_plugin_starter_autoloader` so it matches the name of the function you used in the previous step.
+4. **Rename the file and the dir** to something that reflects your plugin name. Maybe the name of the plugin but _"hypenized"_
 
 ### In `gulpfile.js`
+
+_Only if you are going to compile SCSS/JS files or use the `compress` or `zip` tasks_
 
 Change the values for the variables `pluginPackage`, `pluginSlug` and  `pluginTextdomain` at the top of the file so they matches the values of your project.
 
 
 ### Workflow
 
-1. Start creating classes inside `includes` following the WordPress coding standards with your plugin logic
-2. Issue `composer phpcs` in the root of the project regularly to check for errors and code-smells
+1. Create a class (or classes) in `includes` following the WordPress coding standards with your plugin logic
+2. Issue `compser dump-autoload` so the new classes get recognized
+3. Instantiate this class (or use the _singleton_ parterns) in the start file (by default `wordpres-plugin-starter.php`) **without** requiring the file since the autoloader will take care if the inclussion.
+3. Issue `composer phpcs` in the root of the project regularly to check for errors and code-smells
 
 ## Composer Commands
 

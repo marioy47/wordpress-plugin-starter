@@ -32,5 +32,10 @@
 		"phpcbf-wp": [
 			"phpcbf --standard=WordPress,WordPress-Extra,WordPress-Docs,WordPress-Core"
 		]
+	},
+	"autoload": {
+		"classmap": [
+			"includes/"
+		]
 	}
 }
