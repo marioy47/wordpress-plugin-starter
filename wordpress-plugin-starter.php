@@ -33,7 +33,7 @@ if ( ! defined( 'WPINC' ) ) {
  *
  * @link https://semver.org
  */
-define( 'WORDPRESS_PLUGIN_STARTER_VERSION', '1.0.0' );
+define( 'WORDPRESS_PLUGIN_STARTER_VERSION', get_file_data( __FILE__, array( 'Version' => 'Version' ), false ) ['Version'] );
 
 require_once __DIR__ . '/vendor/autoload.php';
 
