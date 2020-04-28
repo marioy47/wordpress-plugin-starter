@@ -23,6 +23,7 @@
 		"@babel/preset-env": "^7.9.5",
 		"@babel/preset-react": "^7.9.4",
 		"babel-loader": "^8.1.0",
+		"browser-sync": "^2.26.7",
 		"cross-env": "^7.0.2",
 		"del": "^5.1.0",
 		"gulp": "^4.0.2",
