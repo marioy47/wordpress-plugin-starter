@@ -1,25 +1,25 @@
-const path = require("path")
+const path = require('path');
 
 module.exports = {
 	entry: {
-		frontend: "./src/js/frontend.js"
+		frontend: './src/js/frontend.js',
 	},
 	output: {
-		filename: "[name].js",
-		path: path.resolve(__dirname, "js"),
+		filename: '[name].js',
+		path: path.resolve(__dirname, 'js'),
 	},
-	devtool: process.env.NODE_ENV == 'development' ? 'eval-source-map' : false,
+	devtool: process.env.NODE_ENV == 'production' ? false : 'eval-source-map',
 	module: {
 		rules: [
 			{
 				test: /\.js$/,
 				exclude: /node_modules/,
-				loader: "babel-loader",
+				loader: 'babel-loader',
 				options: {
-					presets: ['@babel/preset-env', '@babel/preset-react']
-				}
+					presets: ['@babel/preset-env', '@babel/preset-react'],
+				},
 			},
 		],
 	},
-	mode: process.env.NODE_ENV == 'production' ? 'production' : 'development'
-}
+	mode: process.env.NODE_ENV == 'production' ? 'production' : 'development',
+};
