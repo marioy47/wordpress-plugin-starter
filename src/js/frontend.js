@@ -5,7 +5,6 @@
 // import ReactDOM from 'react-dom';
 // ReactDOM.render(<h1>Hola mundo</h1>, document.getElementById('wrapper'));
 
-
 // And you can use ES6
 // ( d => {
 // 	console.log('hola');

@@ -7,7 +7,8 @@
 		"build": "composer install --no-dev && composer dumpautoload -o && cross-env NODE_ENV=production gulp build",
 		"compress": "composer install --no-dev && composer dumpautoload -o && cross-env NODE_ENV=production gulp compress",
 		"clean": "gulp clean",
-		"pot": "gulp pot"
+		"pot": "gulp pot",
+		"lint": "eslint src/js/**/*.js"
 	},
 	"repository": {
 		"type": "git",
@@ -22,10 +23,12 @@
 		"@babel/core": "^7.9.0",
 		"@babel/preset-env": "^7.9.5",
 		"@babel/preset-react": "^7.9.4",
+		"@wordpress/eslint-plugin": "^6.1.0",
 		"babel-loader": "^8.1.0",
 		"browser-sync": "^2.26.7",
 		"cross-env": "^7.0.2",
 		"del": "^5.1.0",
+		"eslint": "^7.2.0",
 		"gulp": "^4.0.2",
 		"gulp-composer": "^0.4.5",
 		"gulp-sass": "^4.1.0",
