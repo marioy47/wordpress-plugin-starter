@@ -8,7 +8,8 @@
 		"compress": "composer install --no-dev && composer dumpautoload -o && cross-env NODE_ENV=production gulp compress",
 		"clean": "gulp clean",
 		"pot": "gulp pot",
-		"lint": "eslint src/js/**/*.js"
+		"lint": "eslint src/js/**/*.js && stylelint src/sass/**/*.(c|sc)ss && composer phpcs",
+		"lint:fix": "eslint src/js/**/*.js --fix && stylelint src/sass/**/*.(c|sc)ss && composer phpcs"
 	},
 	"repository": {
 		"type": "git",
@@ -34,11 +35,25 @@
 		"gulp-sass": "^4.1.0",
 		"gulp-wp-pot": "^2.4.2",
 		"gulp-zip": "^5.0.1",
+		"husky": "^4.3.0",
+		"lint-staged": "^10.5.1",
 		"node-sass": "^4.14.0",
 		"react": "^16.13.1",
 		"react-dom": "^16.13.1",
+		"stylelint": "^13.7.2",
+		"stylelint-config-wordpress": "^17.0.0",
 		"webpack": "^4.43.0",
 		"webpack-cli": "^3.3.11",
 		"webpack-stream": "^5.2.1"
+	},
+	"husky": {
+		"hooks": {
+			"pre-commit": "lint-staged"
+		}
+	},
+	"lint-staged": {
+		"*.js": "eslint --cache --fix",
+		"*.php": "composer phpcbf -q",
+		"*.(c|sc)ss": "stylelint --cache --fix"
 	}
 }
