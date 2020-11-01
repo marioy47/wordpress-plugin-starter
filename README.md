@@ -6,7 +6,8 @@ The main advantages (and reasons) for using this starter are:
 
 - 100% PHPCS friendly
 - Uses Gulp for task automation
-- Users WebPack+Babel for compiling JS scripts
+- Uses WebPack+Babel for compiling JS scripts
+- Uses husky and lint-steaged to prevent bad code in your repo
 - You can use JSX (and React for that matter) for Javascript development
 - Uses composer for code sniffing and autoloading classes
 - Minimal dependencies, just `composer` and `node`
@@ -31,14 +32,15 @@ The recommended editor is [Visual Studio Code](https://code.visualstudio.com) wi
 
 ## Preparation before developing
 
-Just clone the repo and install composer and npm packages
+You can use [degit](https://github.com/Rich-Harris/degit) to create a new project from scratch:
 
 ```bash
-git clone git@github.com:marioy47/wordpress-plugin-starter.git my-new-plugin
+cd /path/to/wordpres/wp-content/plugins
+npx degit marioy47/wordpress-plugin-starter my-new-plugin
 cd my-new-plugin
 npm install
 composer install
-# Setup you plugin
+### Setup you plugin
 npm start
 ```
 
@@ -49,7 +51,7 @@ After you've installed the required packages and dependencias (previous step) yo
 ### In `wordpress-plugin-starter.php` do
 
 1. Update the comments in this file so WordPress registers the plugin correctly.
-2. Select a **text domain** and change it in the comments
+2. Select a **text domain** and change it in the comments, next to `Text Domain:`
 3. Select a **Namespace** for you plugin and change it the file
 4. Change **the name** of the definition `WORDPRESS_PLUGIN_STARTER_VERSION` (You should use that definition when enqueuing scripts and styles)
 5. **Rename the file and the dir** to something that reflects your plugin name. Maybe the name of the plugin but _"hypenized"_
@@ -73,7 +75,7 @@ The idea behind this project is to have an efficient workflow.
 
 1. Create a class (or classes) in `includes` following the WordPress coding standards with your plugin logic
 2. Issue `composer dump-autoload` so the new classes get recognized
-3. Instantiate this class (or use the _singleton_ parterns) in the start file (by default `wordpres-plugin-starter.php`) **without** requiring the file since the autoloader will take care if the inclussion.
+3. Instantiate this class (or use the _singleton_ patterns) in the start file (by default `wordpres-plugin-starter.php`) **without** requiring the file since the autoloader will take care if the inclusion.
 4. Issue `composer phpcs` in the root of the project regularly to check for errors and code-smells
 
 ## Composer Commands
@@ -92,6 +94,7 @@ This plugin is configured to be kind of rigorous when checking the code standard
 
 ## NPM commands
 
+- `npm run lint` and `npm run lint:fix` to detect and fix code errors.
 - `npm start` to watch for changes in `src/js/` and `src/sass/` and compile
 - `npm run build`
   - Compiles and optimizes the files in `src/js/` and saves them in `js/`
