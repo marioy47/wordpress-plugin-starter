@@ -21,7 +21,7 @@
  * Domain Path:       /languages
  */
 
-namespace Wp_Starter;
+namespace Wp_Starter; // Change the namespace!
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {
@@ -37,5 +37,5 @@ define( 'WORDPRESS_PLUGIN_STARTER_VERSION', get_file_data( __FILE__, array( 'Ver
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-// Remove this line and delete includes/class-my-test-class.php.
+// Remove this line and delete php/class-my-test-class.php.
 My_Test_Class::factory()->wp_hooks();

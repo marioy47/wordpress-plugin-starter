@@ -26,7 +26,7 @@
 
 	<!-- Configure here the paths you want to check -->
 	<file>wordpress-plugin-starter.php</file>
-	<file>includes/</file>
+	<file>php/</file>
 
 	<!-- Show sniff codes in all reports -->
 	<arg value="sp"/>

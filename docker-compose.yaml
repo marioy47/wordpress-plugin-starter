@@ -1,0 +1,112 @@
+version: '3'
+
+services:
+
+  database:
+    image: mariadb
+    container_name: wp-custom-plugin-db
+    environment:
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${MYSQL_DATABASE:-wordpress}
+      MYSQL_USER: ${MYSQL_USER:-wordpress}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-wordpress}
+    volumes:
+      - mariadb-data:/var/lib/mysql
+
+  cache:
+    image: redis:alpine
+    container_name: wp-custom-plugin-cache
+
+  wordpress:
+    image: wordpress:5-apache
+    container_name: wp-custom-plugin-wp
+    ports:
+      - ${WORDPRESS_PORT:-8080}:80
+    environment:
+      WORDPRESS_DB_HOST: wp-custom-plugin-db
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE:-wordpress}
+      WORDPRESS_DB_USER: ${MYSQL_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD:-wordpress}
+      WORDPRESS_DEBUG: ${WORDPRESS_DEBUG:-0}
+      WORDPRESS_CONFIG_EXTRA: |
+        define( 'WP_DEGUB_DISPLAY', false );
+        define( 'WP_DEBUG_LOG', true );
+        define( 'WP_REDIS_HOST', 'wp-custom-plugin-cache' );
+        define( 'WPMS_ON', true );
+        define( 'WPMS_SMTP_HOST', 'wp-custom-plugin-mail' );
+        define( 'WPMS_SMTP_PORT', 1025 );
+        define( 'WPMS_SSL', '' );
+        define( 'WPMS_SMTP_AUTH', false );
+        define( 'WPMS_SMTP_AUTOTLS', true );
+        define( 'WPMS_MAILER', 'smtp' );
+    volumes:
+      - ./:/var/www/html/wp-content/plugins/${PLUGIN_SLUG:-wp-custom-plugin-slug}
+    depends_on:
+      - database
+      - cache
+
+  phpmyadmin:
+    image: phpmyadmin
+    container_name: wp-custom-plugin-pma
+    environment:
+      PMA_HOST: wp-custom-plugin-db
+      MYSQL_ROOT_PASSWORD: ${MYSQL_ROOT_PASSWORD:-root}
+      MYSQL_USER: ${MYSQL_USER:-wordpress}
+      MYSQL_PASSWORD: ${MYSQL_PASSWORD:-wordpress}
+    ports:
+      - ${PMA_PORT:-8081}:80
+    depends_on:
+      - database
+
+  wp-cli:
+    image: wordpress:cli-php7.4
+    container_name: wp-custom-plugin-cli
+    user: xfs
+    environment:
+      WORDPRESS_DB_HOST: wp-custom-plugin-db
+      WORDPRESS_DB_NAME: ${MYSQL_DATABASE:-wordpress}
+      WORDPRESS_DB_USER: ${MYSQL_USER:-wordpress}
+      WORDPRESS_DB_PASSWORD: ${MYSQL_PASSWORD:-wordpress}
+      WP_CLI_PACKAGES_DIR: /tmp/wp-cli-packages # Prevent console errors
+      WORDPRESS_HOST: ${WORDPRESS_HOST:-localhost} # To pass to the installer
+      WORDPRESS_PORT: ${WORDPRESS_PORT:-8080}
+      WORDPRESS_ADMIN_USER: ${WORDPRESS_ADMIN_USER:-admin}
+      WORDPRESS_ADMIN_PASS: ${WORDPRESS_ADMIN_PASS:-pass}
+      WORDPRESS_CONFIG_EXTRA: |
+        define('WP_DEGUB_DISPLAY', true);
+        define('WP_DEBUG_LOG', true);
+        define('WP_REDIS_HOST', 'wp-custom-plugin-cache');
+    volumes_from:
+      - wordpress
+    depends_on:
+      - database
+      - wordpress
+    command:
+      - sh
+      - -c
+      - |
+        sleep 10
+        echo "Installing WordPress in ${WORDPRESS_HOST}:${WORDPRESS_PORT}"
+        wp core install --path=/var/www/html --title=DEV --admin_user=${WORDPRESS_ADMIN_USER} --admin_password=${WORDPRESS_ADMIN_PASS} --admin_email=admin@example.com --skip-email --url="http://${WORDPRESS_HOST}:${WORDPRESS_PORT}"
+        wp plugin install redis-cache --activate
+        wp plugin install wp-mail-smtp --activate
+        wp redis enable
+        echo "Access WordPress on http://${WORDPRESS_HOST}:${WORDPRESS_PORT}/wp-admin/ with User ${WORDPRESS_ADMIN_USER} and password ${WORDPRESS_ADMIN_PASS}"
+        echo "Access PhpMyAdmin on http://${WORDPRESS_HOST}:${PMA_PORT}/ with user root and password ${MYSQL_ROOT_PASSWORD}"
+        echo "Access MailHog on http://${WORDPRESS_HOST}:${MAILHOG_PORT}/"
+
+  mailhog:
+    image: mailhog/mailhog
+    container_name: wp-custom-plugin-mail
+    ports:
+      # - "1025:1025"
+      - "${MAILHOG_PORT:-8025}:8025"
+
+networks:
+  default:
+    name: wp-custom-plugin-network
+
+volumes:
+  mariadb-data:
+
+# vim: ts=2 sw=2 et ft=yaml

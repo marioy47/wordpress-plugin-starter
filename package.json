@@ -8,8 +8,8 @@
 		"compress": "composer install --no-dev && composer dumpautoload -o && cross-env NODE_ENV=production gulp compress",
 		"clean": "gulp clean",
 		"pot": "gulp pot",
-		"lint": "eslint src/js/**/*.js && stylelint src/sass/**/*.(c|sc)ss && composer phpcs",
-		"lint:fix": "eslint src/js/**/*.js --fix && stylelint src/sass/**/*.(c|sc)ss && composer phpcs"
+		"lint": "eslint src/js/**/*.js && stylelint src/sass/**/*.(c|sc)ss && composer lint",
+		"format": "eslint src/js/**/*.js --fix && stylelint src/sass/**/*.(c|sc)ss && composer format"
 	},
 	"repository": {
 		"type": "git",

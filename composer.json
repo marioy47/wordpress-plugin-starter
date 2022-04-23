@@ -23,19 +23,18 @@
 		"post-install-cmd": [
 			"@install-codestandards"
 		],
-		"phpcs": "phpcs",
-		"phpcs-i": "phpcs -i",
-		"phpcbf": "phpcbf",
-		"phpcs-wp": [
-			"phpcs --standard=WordPress,WordPress-Extra,WordPress-Docs,WordPress-Core"
-		],
-		"phpcbf-wp": [
-			"phpcbf --standard=WordPress,WordPress-Extra,WordPress-Docs,WordPress-Core"
-		]
+		"lint": "phpcs",
+		"phpcs": "phpcs -i",
+		"format": "phpcbf"
 	},
 	"autoload": {
 		"classmap": [
-			"includes/"
+			"php/"
 		]
+	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true
+		}
 	}
 }
