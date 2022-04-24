@@ -40,7 +40,7 @@ services:
         define( 'WPMS_SMTP_AUTOTLS', true );
         define( 'WPMS_MAILER', 'smtp' );
     volumes:
-      - ./:/var/www/html/wp-content/plugins/${PLUGIN_SLUG:-wp-custom-plugin-slug}
+      - ./:/var/www/html/wp-content/plugins/${PLUGIN_DIRNAME:-wp-custom-plugin-dirname}
     depends_on:
       - database
       - cache
@@ -109,4 +109,4 @@ networks:
 volumes:
   mariadb-data:
 
-# vim: ts=2 sw=2 et ft=yaml
+    # vim: ts=2 sw=2 et ft=yaml

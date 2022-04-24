@@ -28,14 +28,14 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-/**
- * Rename this, and start at version 1.0.0
- *
- * @link https://semver.org
- */
-define( 'WORDPRESS_PLUGIN_STARTER_VERSION', get_file_data( __FILE__, array( 'Version' => 'Version' ), false ) ['Version'] );
-
 require_once __DIR__ . '/vendor/autoload.php';
 
+$current_plugin = Plugin::factory( __FILE__ )
+	->set_slug( 'this-is-the-slug' )
+	->load_textdomain();
+
 // Remove this line and delete php/class-my-test-class.php.
-My_Test_Class::factory()->wp_hooks();
+My_Test_Class::factory( $current_plugin )->add_hooks();
+
+
+unset( $current_plugin );
