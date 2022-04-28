@@ -3,6 +3,7 @@
 		"editorconfig.editorconfig",
 		"esbenp.prettier-vscode",
 		"neilbrayfield.php-docblocker",
-		"wongjn.php-sniffer"
+		"wongjn.php-sniffer",
+		"xdebug.php-debug"
 	]
 }

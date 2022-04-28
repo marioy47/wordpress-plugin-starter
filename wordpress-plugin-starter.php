@@ -30,12 +30,22 @@ if ( ! defined( 'WPINC' ) ) {
 
 require_once __DIR__ . '/vendor/autoload.php';
 
-$current_plugin = Plugin::factory( __FILE__ )
-	->set_slug( 'this-is-the-slug' )
-	->load_textdomain();
+/**
+ * Plugin initialization function.
+ *
+ * Keeps the global namespace clean of globals.
+ *
+ * @param Plugin $plugin Instance of the plugin class.
+ * @return void Returns nothing since its the only executed function.
+ */
+function init_plugin( Plugin $plugin ) {
+	// Set the slug if necesary and load the text domain.
+	$plugin
+		->set_slug( 'this-is-the-slug' )
+		->load_textdomain();
 
-// Remove this line and delete php/class-my-test-class.php.
-My_Test_Class::factory( $current_plugin )->add_hooks();
+	// Remove this line and delete php/class-my-test-class.php.
+	My_Test_Class::factory( $plugin )->add_hooks();
+}
 
-
-unset( $current_plugin );
+init_plugin( Plugin::factory( __FILE__ ) );
