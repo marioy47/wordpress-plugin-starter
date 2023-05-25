@@ -2,6 +2,7 @@
 	"name": "marioy47/wordpress-plugin-starter",
 	"description": "Starter project for WordPress plugins development",
 	"type": "project",
+	"license": "proprietary",
 	"authors": [
 		{
 			"name": "Mario Yepes",
@@ -34,6 +35,7 @@
 			"@strauss"
 		],
 		"lint": [
+			"@composer validate",
 			"phpcs"
 		],
 		"format": [

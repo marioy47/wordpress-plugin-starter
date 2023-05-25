@@ -2,6 +2,7 @@
 .eslintcache
 /*.zip
 /css/
+/dist/
 /docker/
 /js/
 /languages/wordpress-plugin-starter.pot
