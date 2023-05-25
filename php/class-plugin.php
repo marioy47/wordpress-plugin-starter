@@ -159,7 +159,7 @@ class Plugin {
 	/**
 	 * Get's the plugin slug.
 	 *
-	 * **The plugin slug has to be set manually using `set_slug()`. Otherwise you'll get an error**.
+	 * **The plugin slug has to be set manually using `set_plugin_slug()`. Otherwise you'll get an error**.
 	 *
 	 * @return string
 	 */
@@ -176,7 +176,7 @@ class Plugin {
 	 * @param string $slug The new plugin slug. Example: `my-custom-plugin-slug`.
 	 * @return self
 	 */
-	public function set_slug( $slug ): self {
+	public function set_plugin_slug( $slug ): self {
 		$this->plugin_slug = sanitize_title( $slug );
 		return $this;
 	}

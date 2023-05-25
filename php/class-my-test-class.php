@@ -2,6 +2,8 @@
 /**
  * Test Class.
  *
+ * This is just an example. This file shouldn't be shipped in your plugin.
+ *
  * @package Wordpress_Plugin_Starter
  */
 

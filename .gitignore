@@ -9,3 +9,5 @@
 /test/
 /vendor/
 .env
+bin/strauss.phar
+vendor-prefixed

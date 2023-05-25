@@ -28,6 +28,7 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
+require_once __DIR__ . '/vendor-prefixed/autoload.php';
 require_once __DIR__ . '/vendor/autoload.php';
 
 /**
@@ -41,10 +42,10 @@ require_once __DIR__ . '/vendor/autoload.php';
 function init_plugin( Plugin $plugin ) {
 	// Set the slug if necesary and load the text domain.
 	$plugin
-		->set_slug( 'this-is-the-slug' )
+		->set_plugin_slug( 'this-is-the-slug' )
 		->load_textdomain();
 
-	// Remove this line and delete php/class-my-test-class.php.
+	// Here you should add any initialization code needed.
 	My_Test_Class::factory( $plugin )->add_hooks();
 }
 
