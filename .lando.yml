@@ -1,0 +1,64 @@
+# Lando <https://lando.dev> development environment
+# Usage:
+# `lando start`: To start it up
+# `lando stop`: To stop it and resume latter
+# `lando destroy && rm -rf wp-www`: If you want to start again
+
+name: wordpress-plugin-starter
+recipe: wordpress
+
+config:
+  via: nginx
+  webroot: wp-www # cspell:disable-line
+  database: mariadb
+  xdebug: true
+  php: "8.0"
+  composer_version: "2"
+
+services:
+  appserver:
+    run:
+      - bash /app/bin/lando-wordpress-provision.sh
+    overrides:
+      volumes:
+        - ./:/app/wp-www/wp-content/plugins/wordpress-plugin-starter
+  pma:
+    ssl: true
+    type: phpmyadmin
+  mailhog:
+    ssl: true
+    type: mailhog
+    hogfrom:
+      - appserver
+  redis:
+    type: redis
+    portforward: false
+  node:
+    type: node:16
+    dir: /app/wp-www/wp-content/plugins/sfwd-lms
+
+proxy:
+  appserver_nginx:
+    - wordpress-plugin-starter.lndo.site
+  pma:
+    - wordpress-plugin-starter-pma.lndo.site
+  mailhog:
+    - wordpress-plugin-starter-mail.lndo.site
+
+tooling:
+  wp:
+    service: appserver
+    cmd: /usr/local/bin/wp
+    dir: /app/wp-www
+  composer:
+    service: appserver
+    cmd: composer
+    dir: /app/wp-www/wp-content/plugins/sfwd-lms
+  node:
+    service: node
+    cmd: node
+    dir: /app/wp-www/wp-content/plugins/sfwd-lms
+  npm:
+    service: node
+    cmd: npm
+    dir: /app/wp-www/wp-content/plugins/sfwd-lms
