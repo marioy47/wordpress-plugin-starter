@@ -59,7 +59,7 @@ class My_Test_Class {
 	 */
 	public function footer_changes(): self {
 		// Translators: The path to the current plugin.
-		$message = sprintf( __( 'This content was added by "%s"', 'text-domain' ), $this->plugin->get_file_path() );
+		$message = sprintf( __( 'This content was added by "%s"', 'wordpress-plugin-starter' ), $this->plugin->get_file_path() );
 		echo '<div style="color: red; background-color: white;">' . esc_html( $message ) . '</div>';
 		return $this;
 	}
