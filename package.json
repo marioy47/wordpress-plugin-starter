@@ -8,10 +8,13 @@
 		"postinstall": "composer install",
 		"lint:css": "wp-scripts lint-style scss/**/*.scss",
 		"lint:js": "wp-scripts lint-js js/**/*.js",
+		"lint:md": "wp-scripts lint-md-docs '*.md'",
 		"lint": "run-p lint:*",
 		"format:css": "wp-scripts lint-style scss/**/*.scss",
 		"format:js": "wp-scripts lint-js js/**/*.js",
-		"format": "run-p format:*"
+		"format:md": "wp-scripts lint-md-docs '*.md' --fix",
+		"format": "run-p format:*",
+		"prepare": "husky install"
 	},
 	"repository": {
 		"type": "git",
@@ -24,17 +27,9 @@
 	"devDependencies": {
 		"@wordpress/scripts": "^26.5.0",
 		"browser-sync-webpack-plugin": "^2.3.0",
+		"husky": "^8.0.3",
+		"lint-staged": "^13.2.2",
 		"npm-run-all": "^4.1.5",
 		"webpack-fix-style-only-entries": "^0.6.1"
-	},
-	"husky": {
-		"hooks": {
-			"pre-commit": "lint-staged"
-		}
-	},
-	"lint-staged": {
-		"*.js": "wp-scripts lint-js --fix",
-		"*.php": "composer lint -q",
-		"*.(c|sc)ss": "wp-scripts lint-style --fix"
 	}
 }
