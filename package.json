@@ -25,6 +25,8 @@
 	"license": "ISC",
 	"homepage": "https://github.com/marioy47/wordpress-plugin-starter/blob/master/README.md",
 	"devDependencies": {
+		"@commitlint/cli": "^17.6.3",
+		"@commitlint/config-conventional": "^17.6.3",
 		"@wordpress/scripts": "^26.5.0",
 		"browser-sync-webpack-plugin": "^2.3.0",
 		"husky": "^8.0.3",

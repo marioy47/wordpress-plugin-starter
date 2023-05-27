@@ -24,7 +24,9 @@ module.exports = {
 		new BrowserSyncPlugin( {
 			host: 'localhost',
 			port: 3000,
-			proxy: process.env.PROXY_URL ?? 'https://wordpress-plugin-starter.lndo.site/',
+			proxy:
+				process.env.PROXY_URL ??
+				'https://wordpress-plugin-starter.lndo.site/',
 		} ),
 	],
 };
