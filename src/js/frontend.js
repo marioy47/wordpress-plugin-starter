@@ -1,4 +1,5 @@
-// Starter file for frontend scritps
+// Starter file for frontend scripts
+// cSpell:ignore hola mundo
 
 // You can use React
 // import React from 'react';

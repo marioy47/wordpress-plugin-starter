@@ -53,7 +53,7 @@ class My_Test_Class {
 	}
 
 	/**
-	 * Execute the 'init' hoook added in wp_hooks.
+	 * Execute the 'init' hook added in wp_hooks.
 	 *
 	 * @return self
 	 */

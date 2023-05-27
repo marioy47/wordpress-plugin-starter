@@ -1,3 +1,4 @@
+// cSpell:ignore browsersync
 const webpackWpConfig = require( '@wordpress/scripts/config/webpack.config' );
 const BrowserSyncPlugin = require( 'browser-sync-webpack-plugin' );
 const FixStyleOnlyEntriesPlugin = require( 'webpack-fix-style-only-entries' );

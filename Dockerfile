@@ -1,5 +1,7 @@
 # Make things cleaner by saving this path on a variable
-ARG WORDPRESS_IMAGE="wordpress:5-apache"
+
+# cSpell:ignore pecl
+ARG WORDPRESS_IMAGE="wordpress:6-apache"
 
 FROM $WORDPRESS_IMAGE
 

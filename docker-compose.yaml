@@ -1,3 +1,6 @@
+# If you are not using Lando but Docker, this is a good starting point
+# cSpell:ignore  postname monthnum autotls wpms
+
 version: '3'
 
 services:

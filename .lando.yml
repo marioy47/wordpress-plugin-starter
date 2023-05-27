@@ -3,6 +3,7 @@
 # `lando start`: To start it up
 # `lando stop`: To stop it and resume latter
 # `lando destroy && rm -rf wp-www`: If you want to start again
+# cSpell:ignore appserver lndo portforward hogfrom
 
 name: wordpress-plugin-starter
 recipe: wordpress
@@ -35,7 +36,7 @@ services:
     portforward: false
   node:
     type: node:16
-    dir: /app/wp-www/wp-content/plugins/sfwd-lms
+    dir: /app/wp-www/wp-content/plugins/wordpress-plugin-starter
 
 proxy:
   appserver_nginx:
@@ -53,12 +54,12 @@ tooling:
   composer:
     service: appserver
     cmd: composer
-    dir: /app/wp-www/wp-content/plugins/sfwd-lms
+    dir: /app/wp-www/wp-content/plugins/wordpress-plugin-starter
   node:
     service: node
     cmd: node
-    dir: /app/wp-www/wp-content/plugins/sfwd-lms
+    dir: /app/wp-www/wp-content/plugins/wordpress-plugin-starter
   npm:
     service: node
     cmd: npm
-    dir: /app/wp-www/wp-content/plugins/sfwd-lms
+    dir: /app/wp-www/wp-content/plugins/wordpress-plugins-starter

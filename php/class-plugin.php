@@ -41,7 +41,7 @@ class Plugin {
 	protected $plugin_lang_dir;
 
 	/**
-	 * PLugin base name retreived from the function `plugin_basename`.
+	 * PLugin base name retrieved from the function `plugin_basename`.
 	 *
 	 * @var string
 	 */
@@ -102,7 +102,7 @@ class Plugin {
 	 * // Usage: Call it from the initial plugin file like this:
 	 * $my_plugin = Plugin::from_file_path( __FILE__ );
 	 * ```
-	 * And pass it to the consructor of the other classes to have access to the plugin variables:
+	 * And pass it to the constructor of the other classes to have access to the plugin variables:
 	 *
 	 * ```php
 	 * Other_Class::factory( $my_plugin );

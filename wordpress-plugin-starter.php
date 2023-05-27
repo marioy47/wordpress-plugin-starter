@@ -19,6 +19,7 @@
  * License URI:       http://www.gnu.org/licenses/gpl-2.0.txt
  * Text Domain:       wordpress-plugin-starter
  * Domain Path:       /languages
+ * cSpell:ignore      WPINC
  */
 
 namespace Wp_Starter; // Change the namespace!
@@ -40,7 +41,7 @@ require_once __DIR__ . '/vendor/autoload.php';
  * @return void Returns nothing since its the only executed function.
  */
 function init_plugin( Plugin $plugin ) {
-	// Set the slug if necesary and load the text domain.
+	// Set the slug if necessary and load the text domain.
 	$plugin
 		->set_plugin_slug( 'this-is-the-slug' )
 		->load_textdomain();

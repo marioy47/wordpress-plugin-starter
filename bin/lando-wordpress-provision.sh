@@ -3,6 +3,8 @@
 # Provision script for WordPress installation when using Lando
 # This script is called from the .lando.yml file
 
+# cSpell:ignore akismet appserver creds dbhost dbname dbpass dbuser getenv
+
 # LANDO_INFO is a Json string with all the parameters.
 DBNAME=$(php -r "echo json_decode(getenv('LANDO_INFO'), true)['database']['creds']['database'];")
 DBUSER=$(php -r "echo json_decode(getenv('LANDO_INFO'), true)['database']['creds']['user'];")

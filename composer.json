@@ -51,7 +51,7 @@
         "strauss": {
             "namespace_prefix": "Wp_Starter\\",
             "classmap_prefix": "Wp_Starter_",
-            "constant_prefix": "WP_STERTER_",
+            "constant_prefix": "WP_STARTER_",
             "delete_vendor_files": true,
             "packages": [
                 ""
