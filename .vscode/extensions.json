@@ -1,9 +1,13 @@
 {
 	"recommendations": [
+		"dbaeumer.vscode-eslint",
 		"editorconfig.editorconfig",
 		"esbenp.prettier-vscode",
-		"neilbrayfield.php-docblocker",
+		"streetsidesoftware.code-spell-checker",
+		"stylelint.vscode-stylelint",
+		"swordev.phpstan",
 		"wongjn.php-sniffer",
-		"xdebug.php-debug"
+		"xdebug.php-debug",
+		"yzhang.markdown-all-in-one"
 	]
 }
