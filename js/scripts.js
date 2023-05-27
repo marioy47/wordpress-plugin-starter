@@ -1,3 +1,12 @@
-// If your plugin add JavaScript, use this file as a
-// STARTING file for all scripts. You can split the scripts
-// into multiple files and include them using `import` or `require`
+// Starter file for frontend scripts
+// cSpell:ignore hola mundo
+
+// You can use React
+// import React from 'react';
+// import ReactDOM from 'react-dom';
+// ReactDOM.render(<h1>Hola mundo</h1>, document.getElementById('wrapper'));
+
+// And you can use ES6
+// ( d => {
+// 	console.log('hola');
+// })(document);
