@@ -5,7 +5,7 @@
  * @package Wordpress_Plugin_Starter
  */
 
-namespace Wp_Starter;
+namespace Wordpress_Plugin_Starter;
 
 /**
  * Class with utility plugin functions.

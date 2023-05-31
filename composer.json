@@ -23,11 +23,11 @@
 		}
 	},
 	"scripts": {
-        "strauss": [
-            "mkdir -p ./bin/",
-            "test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.13.0/strauss.phar",
-            "@php bin/strauss.phar"
-        ],
+		"strauss": [
+			"mkdir -p ./bin/",
+			"test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.13.0/strauss.phar",
+			"@php bin/strauss.phar"
+		],
 		"post-install-cmd": [
 			"@strauss"
 		],
@@ -47,18 +47,18 @@
 			"php/"
 		]
 	},
-    "extra": {
-        "strauss": {
-            "namespace_prefix": "Wp_Starter\\",
-            "classmap_prefix": "Wp_Starter_",
-            "constant_prefix": "WP_STARTER_",
-            "delete_vendor_files": true,
-            "packages": [
-                ""
-            ],
-            "excluded_from_prefix": {
-                "file_patterns": []
-            }
-        }
-    }
+	"extra": {
+		"strauss": {
+			"namespace_prefix": "Wordpress_Plugin_Starter\\",
+			"classmap_prefix": "Wordpress_Plugin_Starter_",
+			"constant_prefix": "WORDPRESS_PLUGIN_STARTER_",
+			"delete_vendor_files": true,
+			"packages": [
+				""
+			],
+			"excluded_from_prefix": {
+				"file_patterns": []
+			}
+		}
+	}
 }

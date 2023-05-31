@@ -22,7 +22,7 @@
  * cSpell:ignore      WPINC
  */
 
-namespace Wp_Starter; // Change the namespace!
+namespace Wordpress_Plugin_Starter; // Change the namespace!
 
 // If this file is called directly, abort.
 if ( ! defined( 'WPINC' ) ) {

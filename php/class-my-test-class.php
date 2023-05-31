@@ -7,7 +7,7 @@
  * @package Wordpress_Plugin_Starter
  */
 
-namespace Wp_Starter;
+namespace Wordpress_Plugin_Starter;
 
 /**
  * This is a pretty empty class. Use it as a template for new classes.
