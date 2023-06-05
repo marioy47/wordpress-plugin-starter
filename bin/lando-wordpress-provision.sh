@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# Provision script for WordPress installation when using Lando
+# Provision script for WordPress installation when using Lando.
 # This script is called from the .lando.yml file
 
 # cSpell:ignore akismet appserver creds dbhost dbname dbpass dbuser getenv
@@ -11,7 +11,7 @@ DBUSER=$(php -r "echo json_decode(getenv('LANDO_INFO'), true)['database']['creds
 DBPASS=$(php -r "echo json_decode(getenv('LANDO_INFO'), true)['database']['creds']['password'];")
 APP_URL=$(php -r "echo json_decode(getenv('LANDO_INFO'), true)['appserver_nginx']['urls'][1];")
 
-# Download and install WordPress
+# Download and install WordPress.
 wp --path=/app/wp-www core download
 wp --path=/app/wp-www config create --dbhost=database --dbname="${DBNAME}" --dbuser="${DBUSER}" --dbpass="${DBPASS}" --extra-php="
 define( 'WP_DEBUG', true );
@@ -33,3 +33,6 @@ wp --path=/app/wp-www plugin install "user-switching" --activate
 
 # The adds redis to the must-use plugins
 wp --path=/app/wp-www redis enable
+
+# Fix permalinks
+wp --path=/app/wp-www option update permalink_structure "/%year%/%monthnum%/%postname%/

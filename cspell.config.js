@@ -15,6 +15,7 @@ module.exports = {
 		'wp-www',
 	],
 	words: [
+		'akismet',
 		'commitlint',
 		'gulpfile', // TODO: delete this after gulp is fully removed.
 		'huskyrc',
@@ -22,10 +23,12 @@ module.exports = {
 		'mailhog',
 		'mario',
 		'marioy',
+		'monthnum',
 		'phar',
 		'phpcbf',
 		'phpcs',
 		'phpmyadmin',
+		'postname',
 		'xdebug',
 		'yepes',
 	],

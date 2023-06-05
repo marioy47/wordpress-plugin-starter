@@ -97,7 +97,12 @@ services:
         sleep 10
         echo "Installing WordPress in ${WORDPRESS_HOST}:${WORDPRESS_PORT}"
         wp core install --path=/var/www/html --title=DEV --admin_user=${WORDPRESS_ADMIN_USER} --admin_password=${WORDPRESS_ADMIN_PASS} --admin_email=admin@example.com --skip-email --url="http://${WORDPRESS_HOST}:${WORDPRESS_PORT}"
+        wp plugin delete akismet hello
         wp plugin install redis-cache --activate
+        wp plugin install debug-bar --activate
+        wp plugin install query-monitor --activate
+        wp plugin install simply-show-hooks --activate
+        wp plugin install user-switching --activate
         wp plugin install wp-mail-smtp --activate
         wp redis enable
         wp option update permalink_structure "/%year%/%monthnum%/%postname%/
