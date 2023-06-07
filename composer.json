@@ -9,17 +9,20 @@
 			"email": "marioy47@gmail.com"
 		}
 	],
-	"require": {},
 	"require-dev": {
 		"dealerdirect/phpcodesniffer-composer-installer": "*",
 		"phpcompatibility/php-compatibility": "*",
 		"phpcompatibility/phpcompatibility-wp": "*",
 		"sirbrillig/phpcs-variable-analysis": "*",
-		"wp-coding-standards/wpcs": "*"
+		"wp-coding-standards/wpcs": "*",
+		"phpstan/phpstan": "*",
+		"szepeviktor/phpstan-wordpress": "*",
+		"phpstan/extension-installer": "*"
 	},
 	"config": {
 		"allow-plugins": {
-			"dealerdirect/phpcodesniffer-composer-installer": true
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"phpstan/extension-installer": true
 		}
 	},
 	"scripts": {
@@ -36,10 +39,14 @@
 		],
 		"lint": [
 			"@composer validate",
-			"phpcs"
+			"phpcs",
+			"@phpstan"
 		],
 		"format": [
 			"phpcbf"
+		],
+		"phpstan": [
+			"phpstan --memory-limit=2G"
 		]
 	},
 	"autoload": {

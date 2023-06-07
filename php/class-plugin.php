@@ -74,16 +74,15 @@ class Plugin {
 				'Version'     => 'Version',
 				'Text Domain' => 'Text Domain',
 				'Domain Path' => 'Domain Path',
-			),
-			false
+			)
 		);
 		if ( defined( 'WP_DEBUG' ) && WP_DEBUG ) {
-			$this->plugin_version = time();
+			$this->plugin_version = (string) time();
 		} elseif ( array_key_exists( 'Version', $initial_file_info ) ) {
 			$this->plugin_version = $initial_file_info['Version'];
 		}
 		if ( empty( $this->plugin_version ) ) {
-			$this->plugin_version = time();
+			$this->plugin_version = (string) time();
 		}
 		if ( array_key_exists( 'Text Domain', $initial_file_info ) ) {
 			$this->plugin_text_domain = $initial_file_info['Text Domain'];
@@ -165,7 +164,7 @@ class Plugin {
 	 */
 	public function get_slug(): string {
 		if ( empty( $this->plugin_slug ) ) {
-			_doing_it_wrong( __FUNCTION__, 'You have to specify the plugin slug first', 1 );
+			_doing_it_wrong( __FUNCTION__, 'You have to specify the plugin slug first', esc_attr( $this->plugin_version ) );
 		}
 		return $this->plugin_slug;
 	}

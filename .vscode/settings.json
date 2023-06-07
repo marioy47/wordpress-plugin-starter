@@ -1,6 +1,17 @@
 {
+  "phpSniffer.executablesFolder": "vendor/bin/",
+	"phpstan.enabled": true,
   "[php]": {
     "editor.defaultFormatter": "wongjn.php-sniffer"
   },
-  "phpSniffer.executablesFolder": "vendor/bin/"
+
+	"stylelint.validate": [ "css", "scss" ],
+	"[css|scss]": {
+		"editor.defaultFormatter": "stylelint.vscode-stylelint",
+		"editor.formatOnSave": true
+	},
+
+	"[javascript|react|json|jsonc]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	}
 }
