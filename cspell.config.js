@@ -17,7 +17,6 @@ module.exports = {
 	words: [
 		'akismet',
 		'commitlint',
-		'gulpfile', // TODO: delete this after gulp is fully removed.
 		'huskyrc',
 		'lando',
 		'mailhog',

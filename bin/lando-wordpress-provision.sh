@@ -35,4 +35,4 @@ wp --path=/app/wp-www plugin install "user-switching" --activate
 wp --path=/app/wp-www redis enable
 
 # Fix permalinks
-wp --path=/app/wp-www option update permalink_structure "/%year%/%monthnum%/%postname%/
+wp --path=/app/wp-www option update permalink_structure "/%year%/%monthnum%/%postname%/"

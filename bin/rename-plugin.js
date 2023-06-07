@@ -11,6 +11,21 @@ const { name } = require( path.join(
 const scriptArgs = parseArgs( process.argv.splice( 2 ), { name: [ name ] } );
 const newName = scriptArgs.name.pop();
 
+// If the name in package.json is the default, do not make any file changes.
+if ( 'wordpress-plugin-starter' === newName ) {
+	console.warn(
+		`The name of the plugin is still 'wordpress-plugin-starter'. No action will be performed.`
+	);
+	console.info(
+		`Change the 'name' in 'package.json' and run the command 'npm run postinstall:rename'.`
+	);
+	process.exit( 1 );
+} else {
+	console.info(
+		`Changing 'wordpress-plugin-starter' string to '${ newName }' on the default files.`
+	);
+}
+
 // If we made the change, update files that referenced that name.
 const renameOptions = {
 	files: [
@@ -44,5 +59,8 @@ replace( renameOptions )
 		fs.rename( orig, dest );
 	} )
 	.catch( ( error ) =>
-		console.error( 'There was an error making the replacement', error )
+		console.error(
+			'There was an error making the string replacement',
+			error
+		)
 	);

@@ -2,34 +2,17 @@
 	"name": "wordpress-plugin-starter",
 	"version": "1.0.0",
 	"description": "",
-	"scripts": {
-		"start": "wp-scripts start",
-		"build:assets": "wp-scripts build",
-		"build:pot": "node bin/wp-pot.js --src '*.php' --src 'php/**/*.php' --src 'js/**/*.js'",
-		"build": "run-p build:*",
-		"postinstall:husky": "husky install",
-		"postinstall:composer": "composer install",
-		"postinstall": "run-p postinstall:*",
-		"cspell-base-command": "cspell --relative --dot --no-progress --show-suggestions --show-context",
-		"lint:css": "wp-scripts lint-style scss/**/*.scss",
-		"lint:js": "wp-scripts lint-js js/**/*.js bin/**/*.js",
-		"lint:md": "wp-scripts lint-md-docs '*.md'",
-		"lint:spell": "npm run cspell-base-command -- .",
-		"lint": "run-p lint:*",
-		"format:css": "wp-scripts lint-style scss/**/*.scss --fix",
-		"format:js": "wp-scripts lint-js js/**/*.js bin/**/*.js --fix",
-		"format:md": "wp-scripts lint-md-docs '*.md' --fix",
-		"format": "run-p format:*",
-		"rename": "node bin/rename-plugin.js"
-	},
+	"author": "",
+	"license": "unlicensed",
+	"private": true,
+	"keywords": [],
+	"homepage": "https://github.com/marioy47/wordpress-plugin-starter/blob/master/README.md",
 	"repository": {
 		"type": "git",
 		"url": "git+ssh://git@github.com/marioy47/wordpress-plugin-starter.git"
 	},
-	"keywords": [],
-	"author": "",
-	"license": "ISC",
-	"homepage": "https://github.com/marioy47/wordpress-plugin-starter/blob/master/README.md",
+	"bugs": {
+	},
 	"devDependencies": {
 		"@commitlint/cli": "^17.6.3",
 		"@commitlint/config-conventional": "^17.6.3",
@@ -42,5 +25,26 @@
 		"replace-in-file": "^7.0.1",
 		"webpack-fix-style-only-entries": "^0.6.1",
 		"wp-pot": "^1.10.2"
+	},
+	"scripts": {
+		"build": "run-p build:*",
+		"build:assets": "wp-scripts build",
+		"build:pot": "node bin/wp-pot.js --src '*.php' --src 'php/**/*.php' --src 'js/**/*.js'",
+		"cspell-base-command": "cspell --relative --dot --no-progress --show-suggestions --show-context",
+		"format": "run-p format:*",
+		"format:css": "wp-scripts lint-style scss/**/*.scss --fix",
+		"format:js": "wp-scripts lint-js js/**/*.js bin/**/*.js --fix",
+		"format:md": "wp-scripts lint-md-docs '*.md' --fix",
+		"lint": "run-p lint:*",
+		"lint:css": "wp-scripts lint-style scss/**/*.scss",
+		"lint:js": "wp-scripts lint-js js/**/*.js bin/**/*.js",
+		"lint:md": "wp-scripts lint-md-docs '*.md'",
+		"lint:pkg-json": "wp-scripts lint-pkg-json",
+		"lint:spell": "npm run cspell-base-command -- .",
+		"postinstall": "run-p postinstall:*",
+		"postinstall:composer": "composer install",
+		"postinstall:husky": "husky install",
+		"postinstall:rename": "node bin/rename-plugin.js",
+		"start": "wp-scripts start"
 	}
 }
