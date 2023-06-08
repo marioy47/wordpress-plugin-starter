@@ -35,6 +35,7 @@ const renameOptions = {
 		'composer.json',
 		'docker-compose.yaml',
 		'php/**/*.php',
+		'phpcs.xml.dist',
 	],
 	from: [ /wordpress-plugin-starter/g, /Wordpress_Plugin_Starter/g ],
 	to: [ newName, pkgName( newName ) ],
