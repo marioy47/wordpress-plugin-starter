@@ -9,6 +9,9 @@
 			"email": "marioy47@gmail.com"
 		}
 	],
+	"require": {
+		"php": ">=8.0"
+	},
 	"require-dev": {
 		"dealerdirect/phpcodesniffer-composer-installer": "*",
 		"phpcompatibility/php-compatibility": "*",
@@ -23,7 +26,9 @@
 		"allow-plugins": {
 			"dealerdirect/phpcodesniffer-composer-installer": true,
 			"phpstan/extension-installer": true
-		}
+		},
+		"preferred-install": "dist",
+		"sort-packages": true
 	},
 	"scripts": {
 		"strauss": [
@@ -36,6 +41,9 @@
 		],
 		"post-update-cmd": [
 			"@strauss"
+		],
+		"phpcs": [
+			"phpcs"
 		],
 		"lint": [
 			"@composer validate",

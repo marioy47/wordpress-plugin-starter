@@ -29,25 +29,29 @@ if ( ! defined( 'WPINC' ) ) {
 	die;
 }
 
-require_once __DIR__ . '/vendor-prefixed/autoload.php';
-require_once __DIR__ . '/vendor/autoload.php';
+require_once __DIR__ . '/vendor-prefixed/autoload.php'; // See Strauss.
+require_once __DIR__ . '/vendor/autoload.php'; // for non prefixed classes.
 
 /**
  * Plugin initialization function.
  *
- * Keeps the global namespace clean of globals.
+ * Using a `init_plugin` function to create all objects and variables, keeps
+ * the global namespace clean.
+ *
+ * Also, this will prevent headaches with PHPCS and PhpStan validation.
  *
  * @param Plugin $plugin Instance of the plugin class.
- * @return void Returns nothing since its the only executed function.
+ * @return void Returns nothing since its just for initialization.
  */
 function init_plugin( Plugin $plugin ) {
 	// Set the slug if necessary and load the text domain.
 	$plugin
-		->set_plugin_slug( 'this-is-the-slug' )
+		->set_plugin_slug( 'wordpress-plugin-starter' )
 		->load_textdomain();
 
-	// Here you should add any initialization code needed.
 	My_Test_Class::factory( $plugin )->add_hooks();
+	// Here you should add any initialization code needed, like
+	// new classes or calling other WordPress hooks.
 }
 
 init_plugin( Plugin::factory( __FILE__ ) );
