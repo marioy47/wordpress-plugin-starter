@@ -55,6 +55,13 @@ class Plugin {
 	protected $plugin_dirname;
 
 	/**
+	 * The URL to the base of the plugin.
+	 *
+	 * @var string
+	 */
+	protected $plugin_dir_url;
+
+	/**
 	 * Plugin slug.
 	 *
 	 * @var string
@@ -92,6 +99,7 @@ class Plugin {
 		}
 		$this->plugin_basename = plugin_basename( $file_path );
 		$this->plugin_dirname  = basename( dirname( $file_path ) );
+		$this->plugin_dir_url  = plugin_dir_url( $file_path );
 	}
 
 	/**
@@ -116,7 +124,7 @@ class Plugin {
 	}
 
 	/**
-	 * The absolute path ot the plugins initial file.
+	 * The absolute path of the plugins initial file.
 	 *
 	 * @return string
 	 */
@@ -156,6 +164,20 @@ class Plugin {
 	}
 
 	/**
+	 * Return the URL to the plugin base.
+	 * Useful for enqueuing styles and scripts.
+	 *
+	 * @param string $additional_path (optional) path to add to the end of the URL. It has to include the initial `/`.
+	 *
+	 * @return string
+	 */
+	public function get_plugin_dir_url( string $additional_path = '' ): string {
+
+		return $this->plugin_dir_url . $additional_path;
+	}
+
+
+	/**
 	 * Get's the plugin slug.
 	 *
 	 * **The plugin slug has to be set manually using `set_plugin_slug()`. Otherwise you'll get an error**.
@@ -170,7 +192,7 @@ class Plugin {
 	}
 
 	/**
-	 * Set the plugin slug in case you need it for URL params.
+	 * Set the plugin slug in case you need it for URL parameters.
 	 *
 	 * @param string $slug The new plugin slug. Example: `my-custom-plugin-slug`.
 	 * @return self

@@ -18,6 +18,7 @@ define( 'WP_DEBUG', true );
 define( 'SCRIPT_DEBUG', true );
 define( 'WP_DEBUG_LOG', true );
 define( 'WP_REDIS_HOST', 'redis' );
+define( 'DISALLOW_FILE_EDIT', true );
 "
 wp --path=/app/wp-www core install --title="DEV" --url="${APP_URL}" --admin_user=admin --admin_password=password --admin_email=admin@example.com
 
