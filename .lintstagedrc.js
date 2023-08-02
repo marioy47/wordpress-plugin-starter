@@ -3,5 +3,5 @@ module.exports = {
 	'*.js': 'npm run format:js',
 	'*.md': 'npm run format:md',
 	'*.php': 'composer format',
-	'*': "npm run cspell-base-command" // Only cspell on changed files.
+	'*': "npm run cspell-base-command -- ." // Only cspell on changed files.
 };

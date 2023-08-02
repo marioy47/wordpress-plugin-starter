@@ -1,8 +1,8 @@
 {
 	"name": "marioy47/wordpress-plugin-starter",
 	"description": "Starter project for WordPress plugins development",
-	"type": "project",
 	"license": "proprietary",
+	"type": "project",
 	"authors": [
 		{
 			"name": "Mario Yepes",
@@ -14,66 +14,69 @@
 	},
 	"require-dev": {
 		"dealerdirect/phpcodesniffer-composer-installer": "*",
+		"ergebnis/composer-normalize": "*",
 		"phpcompatibility/php-compatibility": "*",
 		"phpcompatibility/phpcompatibility-wp": "*",
-		"sirbrillig/phpcs-variable-analysis": "*",
-		"wp-coding-standards/wpcs": "*",
+		"phpstan/extension-installer": "*",
 		"phpstan/phpstan": "*",
+		"sirbrillig/phpcs-variable-analysis": "*",
 		"szepeviktor/phpstan-wordpress": "*",
-		"phpstan/extension-installer": "*"
-	},
-	"config": {
-		"allow-plugins": {
-			"dealerdirect/phpcodesniffer-composer-installer": true,
-			"phpstan/extension-installer": true
-		},
-		"preferred-install": "dist",
-		"sort-packages": true
-	},
-	"scripts": {
-		"strauss": [
-			"mkdir -p ./bin/",
-			"test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.13.0/strauss.phar",
-			"@php bin/strauss.phar"
-		],
-		"post-install-cmd": [
-			"@strauss"
-		],
-		"post-update-cmd": [
-			"@strauss"
-		],
-		"phpcs": [
-			"phpcs"
-		],
-		"lint": [
-			"@composer validate",
-			"phpcs",
-			"@phpstan"
-		],
-		"format": [
-			"phpcbf"
-		],
-		"phpstan": [
-			"phpstan --memory-limit=2G"
-		]
+		"wp-coding-standards/wpcs": "*"
 	},
 	"autoload": {
 		"classmap": [
 			"php/"
 		]
 	},
+	"config": {
+		"allow-plugins": {
+			"dealerdirect/phpcodesniffer-composer-installer": true,
+			"phpstan/extension-installer": true,
+			"ergebnis/composer-normalize": true
+		},
+		"preferred-install": "dist",
+		"sort-packages": true
+	},
 	"extra": {
 		"strauss": {
-			"namespace_prefix": "Wordpress_Plugin_Starter\\",
 			"classmap_prefix": "Wordpress_Plugin_Starter_",
 			"constant_prefix": "WORDPRESS_PLUGIN_STARTER_",
 			"delete_vendor_files": true,
-			"packages": [
-				""
-			],
 			"excluded_from_prefix": {
 				"file_patterns": []
-			}
+			},
+			"namespace_prefix": "Wordpress_Plugin_Starter\\",
+			"packages": [
+				""
+			]
 		}
+	},
+	"scripts": {
+		"post-install-cmd": [
+			"@strauss"
+		],
+		"post-update-cmd": [
+			"@strauss"
+		],
+		"format": [
+			"@composer normalize",
+			"phpcbf"
+		],
+		"lint": [
+			"@composer validate",
+			"phpcs",
+			"@phpstan"
+		],
+		"phpcs": [
+			"phpcs"
+		],
+		"phpstan": [
+			"phpstan --memory-limit=2G"
+		],
+		"strauss": [
+			"mkdir -p ./bin/",
+			"test -f ./bin/strauss.phar || curl -o bin/strauss.phar -L -C - https://github.com/BrianHenryIE/strauss/releases/download/0.13.0/strauss.phar",
+			"@php bin/strauss.phar"
+		]
 	}
 }
