@@ -4,6 +4,7 @@ module.exports = {
 	ignorePaths: [
 		'.git/',
 		'.gitignore',
+		'.phpactor.json',
 		'.vscode/**', // Otherwise VSCode package names will give errors.
 		'bin/strauss.phar',
 		'composer.json', // Otherwise we need to add all of GitHub handles in 'words'.
@@ -24,6 +25,7 @@ module.exports = {
 		'marioy',
 		'monthnum',
 		'phar',
+		'phpactor',
 		'phpcbf',
 		'phpcs',
 		'phpmyadmin',
