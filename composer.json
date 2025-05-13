@@ -19,6 +19,7 @@
 		"phpcompatibility/phpcompatibility-wp": "*",
 		"phpstan/extension-installer": "*",
 		"phpstan/phpstan": "*",
+		"roave/security-advisories": "dev-latest",
 		"sirbrillig/phpcs-variable-analysis": "*",
 		"szepeviktor/phpstan-wordpress": "*",
 		"wp-coding-standards/wpcs": "*"
