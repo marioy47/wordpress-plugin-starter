@@ -11,12 +11,11 @@
 		"type": "git",
 		"url": "git+ssh://git@github.com/marioy47/wordpress-plugin-starter.git"
 	},
-	"bugs": {
-	},
+	"bugs": {},
 	"devDependencies": {
 		"@commitlint/cli": "^17.6.3",
 		"@commitlint/config-conventional": "^17.6.3",
-		"@wordpress/scripts": "^26.5.0",
+		"@wordpress/scripts": "^26.19.0",
 		"browser-sync-webpack-plugin": "^2.3.0",
 		"cspell": "^6.31.1",
 		"husky": "^8.0.3",
