@@ -30,7 +30,6 @@ const renameOptions = {
 	files: [
 		'*.php',
 		'.lando.yml',
-		'bin/wp-pot.js',
 		'composer.json',
 		'docker-compose.yaml',
 		'php/**/*.php',

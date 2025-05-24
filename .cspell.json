@@ -1,0 +1,38 @@
+{
+	"version": "0.2",
+	"language": "en",
+	"ignorePaths": [
+		".git/",
+		".gitattributes",
+		".gitignore",
+		".phpactor.json",
+		".vscode/**",
+		"bin/strauss.phar",
+		"composer.json",
+		"dist/",
+		"languages/",
+		"node_modules/**",
+		"vendor-prefixed/**",
+		"vendor/**",
+		"wp-www"
+	],
+	"words": [
+		"akismet",
+		"commitlint",
+		"huskyrc",
+		"lando",
+		"mailhog",
+		"mailhog",
+		"mario",
+		"marioy",
+		"monthnum",
+		"phar",
+		"phpactor",
+		"phpcbf",
+		"phpcs",
+		"phpmyadmin",
+		"postname",
+		"xdebug",
+		"yepes"
+	]
+}

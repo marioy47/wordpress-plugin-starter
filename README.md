@@ -8,10 +8,12 @@ A minimal file and minimal configuration WordPress plugin focused on a productiv
 The main advantages (and reasons) for using this starter are:
 
 -   Uses [wp-scripts](https://www.npmjs.com/package/@wordpress/scripts) for linting and building JavaScript, Sass and Markdown.
--   Uses [strauss](https://github.com/BrianHenryIE/strauss) for composer package inclusion and auto-loading Enforces WordPress coding standards
+-   Uses [strauss](https://github.com/BrianHenryIE/strauss) for composer package inclusion and auto-loading
+-   Enforces WordPress coding standards
 -   Uses `husky`, `lint-staged` and `commitlint` to prevent bad commits in your repo
 -   You can use `.jsx` (and React for that matter) for JavaScript development
--   Minimal dependencies on your system, just `composer` and `npm` and optionally `lando` and/or `docker`
+-   Minimal dependencies on your system, just `composer` and `npm`
+-   You can use `lando` and/or `docker` avoiding the need of `node` and `php` local installation
 -   If you use [Visual Studio Code](https://code.visualstudio.com) you'll be prompted to install recommended extensions
 
 ## Requirements & Tools
@@ -39,7 +41,7 @@ lando start # or `docker-compose up -d`
 npm start
 ```
 
-> **Note**: The `postinstall` script in [`package.json`](package.json) will do the following:
+> [!NOTE]: The `postinstall` script in [`package.json`](package.json) will do the following:
 >
 > -   Install `composer` packages for you
 > -   Setup `husky` for linting commits
@@ -47,7 +49,7 @@ npm start
 
 ## Coding Standards
 
-This plugin is configured to be rigorous when checking the code standards. That's why is recommended that you read [https://make.wordpress.org/core/handbook/coding-standards/](https://make.wordpress.org/core/handbook/coding-standards/) beforehand.
+This plugin is configured to be rigorous when checking the code standards. That's why is recommended that you read <https://make.wordpress.org/core/handbook/coding-standards/> beforehand.
 
 ## Npm and Composer commands
 
@@ -63,6 +65,7 @@ There are multiple helper `scripts` in [`package.json`](package.json) and [`comp
 If you are using a version of PHP newer than 8.1 you might get errors in the form:
 
 <!-- cSpell:disable -->
+
 ```text
 FILE: /Users/mario/Projects/wordpress-plugin-starter/php/class-my-test-class.php
 --------------------------------------------------------------------------------------------------------------------------------------------------------------
@@ -83,4 +86,5 @@ brew install shivammathur/php/php@8.0
 brew link --overwrite --force shivammathur/php/php@8.0
 php --version # Should be 8.0.X
 ```
+
 <!-- cSpell:enable -->
