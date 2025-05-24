@@ -3,6 +3,7 @@ module.exports = {
 	language: 'en',
 	ignorePaths: [
 		'.git/',
+		'.gitattributes',
 		'.gitignore',
 		'.phpactor.json',
 		'.vscode/**', // Otherwise VSCode package names will give errors.

@@ -3,10 +3,9 @@ const replace = require( 'replace-in-file' );
 const fs = require( 'fs' ).promises;
 const path = require( 'path' );
 const { pkgName, parseArgs } = require( './functions' );
-const { name } = require( path.join(
-	path.dirname( __dirname ),
-	'package.json'
-) );
+const { name } = require(
+	path.join( path.dirname( __dirname ), 'package.json' )
+);
 
 const scriptArgs = parseArgs( process.argv.splice( 2 ), { name: [ name ] } );
 const newName = scriptArgs.name.pop();
